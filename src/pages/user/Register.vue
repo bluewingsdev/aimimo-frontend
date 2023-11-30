@@ -1,12 +1,12 @@
 <template>
-    <div class="col-md-12">
-      <div class="card card-container">
-        
-      </div>
-    </div>
-  </template>
+  <v-row class="container">
+    <v-col :cols="12">
+      회원가입
+    </v-col>
+  </v-row>
+</template>
   
-  <script>
+<script>
   
   export default {
     name: "RegisterPage",
@@ -57,5 +57,5 @@
       },
     },
   };
-  </script>
+</script>
   

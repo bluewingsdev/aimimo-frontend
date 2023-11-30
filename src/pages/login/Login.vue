@@ -1,12 +1,23 @@
 <template>
-    <div>
-        로그인 페이지111
-    </div>
+    <v-row class="text-center">
+        <v-col :cols="12">
+            로그인페이지
+        </v-col>
+        <v-row>
+            <v-col :cols="8">
+                화면분할67
+            </v-col>
+            <v-col :cols="4">
+                화면분할33
+            </v-col>
+        </v-row>
+    </v-row>
 </template>
   
 <script>
 export default {
     name: "LoginPage",
+    layout: "landing",
     components: {
 
     },

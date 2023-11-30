@@ -1,5 +1,9 @@
 <template>
-  <div>샘플 페이지333</div>
+  <v-row class="container">
+    <v-col :cols="12">
+      샘플페이지
+    </v-col>
+  </v-row>
 </template>
 
 <script>

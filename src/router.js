@@ -1,60 +1,55 @@
 import { createWebHistory, createRouter } from "vue-router"
-import Main from "./components/Index.vue"
-import Login from "./components/Login.vue"
-import Register from "./components/Register.vue"
-import Sample from "./components/Sample.vue"
-// lazy-loaded
-// const Profile = () => import("./components/Profile.vue")
-// const BoardAdmin = () => import("./components/BoardAdmin.vue")
-// const BoardModerator = () => import("./components/BoardModerator.vue")
-// const BoardUser = () => import("./components/BoardUser.vue")
+
+//Layout
+import DefaultLayout from './layout/DefaultLayout.vue'
+import FullLayout from './layout/FullLayout.vue'
+
+//Pages
+import Main from "./pages/Index.vue"
+import Login from "./pages/login/Login.vue"
+import Register from "./pages/user/Register.vue"
+import Sample from "./pages/sample/Sample.vue"
 
 const routes = [
-  //메인
   {
-    path: "/",
-    component: Main,
+    path:'/',
+    name:'Public',
+    component:DefaultLayout,
+    redirect: '/',
+    children:[
+      //메인
+      {
+        path:'/',
+        name:'Main',
+        component:Main
+      },
+      //회원가입
+      {
+        path:'/register',
+        name:'Register',
+        component:Register
+      },
+      {
+        path: "/sample",
+        name:'Sample',
+        component: Sample,
+      }
+    ]
   },
-  //로그인
   {
-    path: "/login",
-    component: Login,
-  },
-  //회원가입
-  {
-    path: "/register",
-    component: Register,
-  },
-  //샘플
-  {
-    path: "/sample",
-    component: Sample,
-  },
-  //   ,
-  //   {
-  //     path: "/profile",
-  //     name: "profile",
-  //     // lazy-loaded
-  //     component: Profile,
-  //   },
-  //   {
-  //     path: "/admin",
-  //     name: "admin",
-  //     // lazy-loaded
-  //     component: BoardAdmin,
-  //   },
-  //   {
-  //     path: "/mod",
-  //     name: "moderator",
-  //     // lazy-loaded
-  //     component: BoardModerator,
-  //   },
-  //   {
-  //     path: "/user",
-  //     name: "user",
-  //     // lazy-loaded
-  //     component: BoardUser,
-  //   },
+    path:'/',
+    name:'FullPage',
+    component:FullLayout,
+    redirect: '/',
+    children:[
+      //로그인
+      {
+          path:'/login',
+          name:'Login',
+          component:Login
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
@@ -63,12 +58,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ["/login", "/register", "/sample"]
+  //const publicPages = ["/login", "/register"]
+  const publicPages = ["/login", "/register", "/", "/sample"] //테스트시 페이지 추가(로그인 개발 후 제거)
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem("user")
 
-  // trying to access a restricted page + not logged in
-  // redirect to login page
+  // 로그인이 필요한 화면 + 로그인이 안된 상태인 경우 login페이지로 이동 
   if (authRequired && !loggedIn) {
     next("/login")
   } else {
