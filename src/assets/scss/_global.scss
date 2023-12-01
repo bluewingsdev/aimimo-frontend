@@ -1,0 +1,48 @@
+@import './mixin.scss';
+
+// ---------------------------------------------------------------------
+// 주요 색상
+// ---------------------------------------------------------------------
+
+$color-blue: #29b6f6;
+$color-red: #ff6666;
+
+$color-black: #000000;
+$color-white: #ffffff;
+
+
+$theme-map-palette: (
+  --color-blue: $color-blue,
+  --color-red: $color-red,
+  --color-black-fixed: $color-black,
+  --color-white-fixed: $color-white
+);
+
+$theme-map-light: (
+  --color-black: $color-black,
+  --color-white: $color-white,
+  --color-blue: $color-blue,
+  --color-red: $color-red,
+);
+
+$theme-map-dark: (
+  --color-black: $color-white,
+  --color-white: $color-black,
+  --color-blue: $color-blue,
+  --color-red: $color-red,
+);
+
+// Zeplin에 표시되는 px을 rem 단위로 변환할 때 쓰는 마법의 수
+$modifier: 15;
+@media (min-width: 1023px) {
+  html {
+    $modifier: 20;
+  }
+}
+
+
+// 텍스트가 여러 줄로 표시되는 경우 기본 행간
+$line-height: 1.5;
+
+// 화면의 상하/좌우 기본 여백
+$base-padding: toRem(80);

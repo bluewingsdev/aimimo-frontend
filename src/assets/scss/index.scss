@@ -1,0 +1,41 @@
+@charset "utf-8";
+@import './reset.scss';
+@import './_global.scss';
+@import './_mixin.scss';
+
+// @import './color.scss';
+// @import './text.scss';
+// @import './divider.scss';
+
+@import './common.scss';
+
+
+html {
+}
+
+body {
+  > #root {
+  }
+}
+
+:root {
+  @include spread-map($theme-map-palette);
+  @include spread-map($theme-map-light);
+  .darkMode {
+    @include spread-map($theme-map-dark);
+  }
+}
+
+.container {
+  height: 100%;
+  background-color: antiquewhite;
+}
+
+.full-container {
+  height: 100%;
+  background-color: antiquewhite;
+}
+
+.text-center {
+  text-align: center;
+}

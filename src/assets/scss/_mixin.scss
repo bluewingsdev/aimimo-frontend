@@ -1,0 +1,53 @@
+@mixin color($color) {
+  @if $color == blue {
+    color: var(--color-blue);
+  } @else if $color == red {
+    color: var(--color-red);
+  } 
+}
+
+@mixin backgroundColor($color) {
+  @if $color == blue {
+    background: var(--color-blue);
+  } @else if $color == red {
+    background: var(--color-red);
+  } 
+}
+
+@mixin font($weight, $px: 50) {
+  @if $weight == light {
+    font-family: 'nanumsquareL';
+  } @else if $weight == regular {
+    font-family: 'nanumsquareR';
+  } @else if $weight == bold {
+    font-family: 'nanumsquareB';
+  } @else if $weight == extraBold {
+    font-family: 'nanumsquareEB';
+  }
+  font-size: toRem($px);
+}
+
+@function toRem($value) {
+  $remValue: calc($value / $modifier) + rem;
+  @return $remValue;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}
