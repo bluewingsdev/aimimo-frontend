@@ -1,5 +1,6 @@
 <template>
     <div class="header">
+        header
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <router-link :to="{name:'Main'}" class="nav-link active" aria-current="page" href="#">홈</router-link>
