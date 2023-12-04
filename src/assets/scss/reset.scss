@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import './_global.scss';
+@import './_mixin.scss';
 
 /* 비밀번호 동그라미 UI */
 @font-face {
@@ -68,9 +70,8 @@ button,
 select,
 pre {
     -webkit-text-size-adjust: none;
-    font-size: 0.96rem;
+    font-size: toRem($modifier);
     letter-spacing: -0.03em;
-    line-height: 1.4em;
     font-weight: 400;
     color: #000;
     font-family: 'nanumsquareR', 'noto sans', arial, sans-serif, Arial, dotum,
@@ -355,8 +356,9 @@ html {
 }
 
 
-@media (min-width: 1023px) {
+@media (max-width: 1023px) {
     html {
-        font-size: 20px;
+        font-size: 15px;
     }
 }
+

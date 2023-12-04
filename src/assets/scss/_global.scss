@@ -1,4 +1,4 @@
-@import './mixin.scss';
+@import './_mixin.scss';
 
 // ---------------------------------------------------------------------
 // 주요 색상
@@ -34,12 +34,6 @@ $theme-map-dark: (
 
 // Zeplin에 표시되는 px을 rem 단위로 변환할 때 쓰는 마법의 수
 $modifier: 15;
-@media (min-width: 1023px) {
-  html {
-    $modifier: 20;
-  }
-}
-
 
 // 텍스트가 여러 줄로 표시되는 경우 기본 행간
 $line-height: 1.5;
