@@ -10,14 +10,13 @@
 <script>
 export default {
     name: "LoginPage",
-    layout: "landing",
     components: {
 
     },
     data() {
         return {
         loginItems:[0,1,2,3,4],
-        activeIndex: localStorage.getItem("loginImagePosition") || 0,
+        activeIndex: parseInt(localStorage.getItem("loginImagePosition")) || 0,
         loading: false,
         message: ""
         };
