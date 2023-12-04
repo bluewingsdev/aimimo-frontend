@@ -3,9 +3,12 @@
     <AppHeader/>
     <div class="contents-wrap">
       <AppLeftMenu/>
-      <router-view />
+      <div class="contents-area">
+        <router-view />
+        <AppFooter/>
+      </div>
     </div>
-    <AppFooter/>
+    
   </div>
 </template>
 

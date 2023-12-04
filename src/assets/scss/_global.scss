@@ -4,36 +4,63 @@
 // 주요 색상
 // ---------------------------------------------------------------------
 
-$color-blue: #29b6f6;
-$color-red: #ff6666;
+$color-navy: #0D518B;
+$color-gray: #6C757E;
+$color-orange: #EE7910;
+$color-blue: #0072BB;
+$color-green : #12B967;
+$color-aqua: #11ACA8;
 
 $color-black: #000000;
 $color-white: #ffffff;
 
+$inputBorder:#DDDDDD;
+$placeHolder:#888;
+
+
+
 
 $theme-map-palette: (
-  --color-blue: $color-blue,
-  --color-red: $color-red,
+  --color-primary:$color-navy,
+  --color-primary-white:$color-white,
+  --color-menu-text:#a4a9b6,
+  --color-border:#E2E3EB,
+
+  --color-black: $color-black,
+  --color-white: $color-white,
   --color-black-fixed: $color-black,
   --color-white-fixed: $color-white
 );
 
-$theme-map-light: (
-  --color-black: $color-black,
-  --color-white: $color-white,
-  --color-blue: $color-blue,
-  --color-red: $color-red,
+$theme-map-navy: (
+ --color-primary:$color-navy,
+);
+$theme-map-gray: (
+  --color-primary:$color-gray,
+);
+$theme-map-orange: (
+  --color-primary:$color-orange,
+);
+$theme-map-blue: (
+  --color-primary:$color-blue,
+);
+$theme-map-green: (
+  --color-primary:$color-green,
+);
+$theme-map-aqua: (
+  --color-primary:$color-aqua,
 );
 
 $theme-map-dark: (
+  --color-primary:#283142,
+  --color-primary-white:#283142,
+    --color-border:#343E4F,
   --color-black: $color-white,
   --color-white: $color-black,
-  --color-blue: $color-blue,
-  --color-red: $color-red,
 );
 
 // Zeplin에 표시되는 px을 rem 단위로 변환할 때 쓰는 마법의 수
-$modifier: 15;
+$modifier: 13;
 
 // 텍스트가 여러 줄로 표시되는 경우 기본 행간
 $line-height: 1.5;

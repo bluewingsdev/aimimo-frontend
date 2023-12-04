@@ -2,7 +2,7 @@
   @if $color == blue {
     color: var(--color-blue);
   } @else if $color == red {
-    color: var(--color-red);
+    // color: var(--color-red);
   } 
 }
 
@@ -10,19 +10,19 @@
   @if $color == blue {
     background: var(--color-blue);
   } @else if $color == red {
-    background: var(--color-red);
+    // background: var(--color-red);
   } 
 }
 
-@mixin font($weight, $px: 50) {
+@mixin font($weight, $px: 13) {
   @if $weight == light {
-    font-family: 'nanumsquareL';
+    font-weight: 300;
   } @else if $weight == regular {
-    font-family: 'nanumsquareR';
+    font-weight: 400;
   } @else if $weight == bold {
-    font-family: 'nanumsquareB';
+    font-weight: 700;
   } @else if $weight == extraBold {
-    font-family: 'nanumsquareEB';
+    font-weight: 800;
   }
   font-size: toRem($px);
 }

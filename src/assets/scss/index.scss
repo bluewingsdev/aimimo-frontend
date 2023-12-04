@@ -11,42 +11,80 @@
 
 
 html {
-  height:100%;
+  height: 100%;
 }
 
 body {
   height: 100%;
-  > #app {
+
+  >#app {
     height: 100%;
+
   }
 }
 
 :root {
   @include spread-map($theme-map-palette);
-  @include spread-map($theme-map-light);
-  .darkMode {
+
+  .navy {
+    @include spread-map($theme-map-navy);
+  }
+
+  .gray {
+    @include spread-map($theme-map-gray);
+  }
+
+  .orange {
+    @include spread-map($theme-map-orange);
+  }
+
+  .blue {
+    @include spread-map($theme-map-blue);
+  }
+
+  .green {
+    @include spread-map($theme-map-green);
+  }
+
+  .aqua {
+    @include spread-map($theme-map-aqua);
+  }
+
+  .dark {
     @include spread-map($theme-map-dark);
   }
 }
 
 .container {
   height: 100%;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  .header {
-    height:100px;
-    background:var(--color-balck);
-  }
-  .footer {
-    height: 100px;
-    background: var(--color-balck);
-  }
+
+
+
   .contents-wrap {
     overflow: hidden;
     overflow-y: auto;
     position: relative;
     flex: 1 1;
-    max-width:1920px;
+    max-width: 1920px;
+    display: flex;
+
+    .contents-area {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1;
+
+      .contents {
+        flex: 1 1;
+      }
+    }
+
+    .footer {
+      height: 50px;
+      background: var(--color-balck);
+    }
   }
 }
 
@@ -55,6 +93,7 @@ body {
   position: relative;
   z-index: 3;
 }
+
 .login-wrap {
   position: relative;
   z-index: 2;
@@ -66,14 +105,17 @@ body {
   height: 100%;
 
   .img {
-    position:absolute; left:0; top:0;
+    position: absolute;
+    left: 0;
+    top: 0;
     margin: 0;
     padding: 0;
     opacity: 0 !important;
     visibility: hidden !important;
     width: 100%;
     height: 100%;
-    transition:all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+
     &.active {
       transition: all 0.5s ease-out;
       opacity: 1 !important;
@@ -110,12 +152,14 @@ body {
     position: absolute;
     left: 50px;
     bottom: 50px;
-    z-index:2;
+    z-index: 2;
     width: max-content;
-    display:flex;
-    gap:10px;
+    display: flex;
+    gap: 10px;
+
     li {
-      width:10px; height:10px;
+      width: 10px;
+      height: 10px;
       background: #000;
       border-radius: 10px;
 
@@ -126,19 +170,282 @@ body {
   }
 }
 
+/** TOP MENU */
+.header-wrap {
+  height: 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.5s ease-out;
+  z-index:2;
+  overflow:hidden;
+  &.active {
+    height: 48px;
+    .header {
+      height:48px;
+    }
+  }
+
+  .header {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 0;
+    overflow: hidden;
+    &.active {
+      height:190px;
+      background-color: var(--color-primary-white);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .one-depth {
+      flex: 1 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+      background-color: var(--color-primary);
+      transition: all 0.2s ease-out;
+      &:hover {
+        background-color: var(--color-primary-white);
+        .one {
+          color: var(--color-menu-text);
+        }
+      }
+
+      .one {
+        padding:0 toRem(10);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        color: var(--color-primary-white);
+        // background: var(--color-primary);
+        transition: all 0.2s ease-out;
+        position:relative;
+        @include font(bold, 13);
+        height: 48px;
+        span {
+          
+        }
+
+        &:hover {
+          color: var(--color-primary);
+          .two-depth {
+            top: 48px;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        cursor: pointer;
+      }
+
+      .two-depth {
+        position:absolute; top:70px; left:0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-out;
+        padding:0 toRem(10);
+        .two {
+          >.boxs {
+            display: flex;
+            align-items: center;
+            padding: toRem(13) 0;
+            color: var(--color-primary);
+            .arr {
+              width: toRem(12);
+              height: toRem(12);
+              display: block;
+              background: url(../images/common/menu-arrow.svg) no-repeat center center;
+              rotate: 0;
+              transition: all 0.2s ease-out;
+            }
+          }
+
+          &:hover {
+            >.boxs {}
+
+            .arr {
+              rotate: 180deg;
+            }
+
+            .three-depth {
+              height: auto;
+              padding: toRem(5) 0;
+            }
+          }
+        }
+      }
+
+      .three-depth {
+        height: 0;
+        max-height: 500px;
+        overflow: hidden;
+        transition: all 0.2s ease-out;
+        padding: 0;
+
+        .three {
+          padding: toRem(6) toRem(30);
+          color: var(--color-primary);
+
+          &:hover {
+            background: var(--color-border);
+          }
+        }
+      }
+    }
+  }
+
+ 
+}
+
+.top-menu-wrap {
+  background: var(--color-primary-white);
+  flex: 1 1;
+}
+
 /** LEFT MENU */
 .left-menu-wrap {
-  height:100%;
-  background:var(--color-black);
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-white) 80px, var(--color-primary-white) 100%);
+  border-right: 1px solid var(--color-border);
+  transition: all 0.5s ease-out;
+
+  &.active {
+    width: 280px;
+  }
+
+  h1.logo {
+    background-color: var(--color-primary);
+  }
+
   .one-depth {
+    position: relative;
+
     .one {
-      height:toRem(100);
-      display:flex;
+      width: toRem(80);
+      height: toRem(80);
+      display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--color-primary-white);
+      background: var(--color-primary);
+      transition: all 0.2s ease-out;
+      @include font(bold, 13);
+
+      &.active,
+      &:hover {
+        color: var(--color-primary);
+        background: var(--color-primary-white);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
+
+      &.active {
+        .two-depth {
+          right: 0;
+        }
+      }
+
+      cursor: pointer;
+    }
+
+    .two-depth {
+      position: absolute;
+      width: 199px;
+      right: -100%;
+      top: 0;
+      transition: all 0.2s ease-out;
+
+      .two {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        margin-top:-1px;
+
+        >.boxs {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: toRem(13) 0;
+          margin: 0 toRem(10);
+          border-top: 1px solid var(--color-border);
+          border-bottom: 1px solid var(--color-border);
+          color: var(--color-primary);
+
+          .arr {
+            width: toRem(12);
+            height: toRem(12);
+            display: block;
+            background: url(../images/common/menu-arrow.svg) no-repeat center center;
+            rotate: 0;
+            transition: all 0.2s ease-out;
+          }
+        }
+
+        &:hover {
+          >.boxs {}
+        }
+
+        &.active {
+          >.boxs {}
+
+          .arr {
+            rotate: 180deg;
+          }
+
+          .three-depth {
+            height: auto;
+            padding: toRem(5) 0;
+          }
+        }
+      }
+    }
+
+    .three-depth {
+      height: 0;
+      max-height: 500px;
+      overflow: hidden;
+      transition: all 0.2s ease-out;
+      padding: 0;
+
+      .three {
+        padding: toRem(6) toRem(30);
+        color: var(--color-primary);
+
+        &:hover,
+        &.active {
+          background: var(--color-border);
+        }
+      }
     }
   }
 }
 
-/** TOP MENU */
+
+
+
 
 /** MOBILE MENU */
+
+/** SETTINGS */
+.settings-wrap {
+  width: 300px;
+  background: var(--color-primary-white);
+  border-left: 1px solid var(--color-border);
+  transition: all 0.5s ease-out;
+}
+
+/** TABS */
+.tab-area {
+  height: 50px;
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.5s ease-out;
+}
