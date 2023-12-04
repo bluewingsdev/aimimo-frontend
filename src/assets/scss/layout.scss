@@ -1,1 +1,70 @@
 @charset "utf-8";
+
+/* 행과 열의 여백을 조정하기 위한 값. 여백은 style="gap:px" */
+.stack-row-inline {
+    display: inline-grid;
+    grid-auto-flow: row;
+    align-items: center;
+}
+
+.stack-column-inline {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.stack-row {
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.stack-column {
+    display: grid;
+    grid-auto-flow: column;
+
+    &.half-width {
+        grid-template-columns: 1fr 1fr;
+        flex-grow: 1; // 부모가 flex 일결우
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+
+    &.max-content {
+        grid-auto-columns: max-content;
+    }
+}
+
+/* 정렬 */
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-start {
+    align-items: start;
+}
+
+.align-items-end {
+    align-items: end;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-items-center {
+    justify-items: center;
+}

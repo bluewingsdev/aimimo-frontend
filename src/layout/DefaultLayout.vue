@@ -2,7 +2,8 @@
   <div class="container">
     <AppHeader/>
     <div class="contents-wrap">
-    <router-view />
+      <AppLeftMenu/>
+      <router-view />
     </div>
     <AppFooter/>
   </div>
@@ -11,6 +12,7 @@
 <script>
 
   import AppHeader from '../components/AppHeader.vue'
+  import AppLeftMenu from '../components/AppLeftMenu.vue'
   import AppFooter from '../components/AppFooter.vue'
 
   export default {
@@ -18,6 +20,7 @@
 
     components:{
       AppHeader,
+      AppLeftMenu,
       AppFooter
     },
 
