@@ -4,6 +4,13 @@
     <div class="contents-wrap">
       <AppLeftMenu/>
       <div class="contents-area">
+        <div class="open-page-wrap">
+          <div class="tab-area">
+              tab...
+          </div>
+          <!-- 상단메뉴가 열렸을땡는 안보이게 처리 -->
+          <AppSettings />
+        </div>
         <router-view />
         <AppFooter/>
       </div>
@@ -17,6 +24,7 @@
   import AppHeader from '../components/common/AppHeader.vue'
   import AppLeftMenu from '../components/common/AppLeftMenu.vue'
   import AppFooter from '../components/common/AppFooter.vue'
+  import AppSettings from '../components/common/AppSettings.vue'
 
   export default {
     name: 'DefaultLayout',
@@ -24,7 +32,8 @@
     components:{
       AppHeader,
       AppLeftMenu,
-      AppFooter
+      AppFooter,
+      AppSettings
     },
 
     data: () => ({

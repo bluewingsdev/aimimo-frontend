@@ -77,12 +77,13 @@ body {
       flex: 1 1;
 
       .contents {
+        background: var(--color-contents-bg);
         flex: 1 1;
       }
     }
 
     .footer {
-      height: 50px;
+      height: toRem(50);
       background: var(--color-balck);
     }
   }
@@ -196,7 +197,7 @@ body {
     overflow: hidden;
     &.active {
       height:190px;
-      background-color: var(--color-primary-white);
+      background-color: var(--color-primary-white-fixed);
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -209,9 +210,9 @@ body {
       background-color: var(--color-primary);
       transition: all 0.2s ease-out;
       &:hover {
-        background-color: var(--color-primary-white);
+        background-color: var(--color-primary-white-fixed);
         .one {
-          color: var(--color-menu-text);
+          color: var(--color-gray-text);
         }
       }
 
@@ -222,7 +223,7 @@ body {
         align-items: center;
         justify-content: center;
         gap: 6px;
-        color: var(--color-primary-white);
+        color: var(--color-primary-white-fixed);
         // background: var(--color-primary);
         transition: all 0.2s ease-out;
         position:relative;
@@ -303,7 +304,7 @@ body {
 }
 
 .top-menu-wrap {
-  background: var(--color-primary-white);
+  background: var(--color-primary-white-fixed);
   flex: 1 1;
 }
 
@@ -312,9 +313,13 @@ body {
   width: 0;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-white) 80px, var(--color-primary-white) 100%);
+  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-dark) 80px, var(--color-primary-dark) 100%);
   border-right: 1px solid var(--color-border);
   transition: all 0.5s ease-out;
+  .menu-wrap {
+    height:100%;
+    overflow-y: auto;
+  }
 
   &.active {
     width: 280px;
@@ -322,6 +327,13 @@ body {
 
   h1.logo {
     background-color: var(--color-primary);
+    display:flex;
+    height:toRem(48);
+    justify-content: flex-start;
+    align-items: center;
+    padding:0 toRem(15);
+    cursor: pointer;
+    img { width: toRem(100);}
   }
 
   .one-depth {
@@ -335,14 +347,14 @@ body {
       align-items: center;
       justify-content: center;
       gap: 6px;
-      color: var(--color-primary-white);
+      color: var(--color-primary-white-fixed);
       background: var(--color-primary);
       transition: all 0.2s ease-out;
       @include font(bold, 13);
       &.active,
       &:hover {
         color: var(--color-primary);
-        background: var(--color-primary-white);
+        background: var(--color-primary-white-fixed);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
 
@@ -361,7 +373,7 @@ body {
       right: -100%;
       top: 0;
       transition: all 0.2s ease-out;
-
+      *{color: var(--color-primary-text);}
       .two {
         &:first-child {
           margin-top: 0;
@@ -378,7 +390,9 @@ body {
           border-top: 1px solid var(--color-border);
           border-bottom: 1px solid var(--color-border);
           color: var(--color-primary);
-
+          &:first-child {
+            border-top: none;
+          }
           .arr {
             width: toRem(12);
             height: toRem(12);
@@ -436,15 +450,56 @@ body {
 
 /** SETTINGS */
 .settings-wrap {
-  width: 300px;
-  background: var(--color-primary-white);
+  background: var(--color-primary-dark);
   border-left: 1px solid var(--color-border);
   transition: all 0.5s ease-out;
+  display:flex;
+  >div { 
+    @include font(bold, 13); 
+    padding:0 toRem(20); 
+    display:flex;
+    align-items: center;
+    border-right: 1px solid var(--color-border);
+    color: var(--color-gray-text);
+    cursor: pointer;
+    position:relative;
+    &.member {
+      span {color: var(--color-primary); border-bottom: 1px solid var(--color-primary);}
+    }
+  }
+  .settings {
+    position:absolute; left:0; top:toRem(50);
+    width: toRem(150); border: 1px solid var(--color-border);
+    background: var(--color-primary-dark);
+    .tit {
+      @include font(bold, 13);
+      color: var(--color-black-text);
+      position:relative; display:flex;
+      justify-content: space-between;
+      padding:toRem(9) toRem(13);
+    }
+    .color-set {
+      background: var(--color-setting-bg);
+    }
+  }
 }
+
 
 /** TABS */
 .tab-area {
-  height: 50px;
-  border-bottom: 1px solid var(--color-border);
+  height: toRem(50);
+  
   transition: all 0.5s ease-out;
+}
+
+/**  */
+.open-page-wrap {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-primary-dark);
+  .tab-area {
+    flex:1 1;
+  }
+
 }

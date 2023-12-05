@@ -1,9 +1,7 @@
 <template>
     <div class="contents">
         <!--  -->
-        <div class="tab-area">
-            tab...
-        </div>
+        
     </div>
 </template>
   

@@ -22,14 +22,20 @@ $placeHolder:#888;
 
 $theme-map-palette: (
   --color-primary:$color-navy,
-  --color-primary-white:$color-white,
-  --color-menu-text:#a4a9b6,
+  --color-primary-text:$color-navy,
+  --color-primary-white-fixed:$color-white,
+  --color-primary-dark:$color-white,
+  --color-gray-text:#a4a9b6,
+  --color-black-text:#475663,
   --color-border:#E2E3EB,
 
   --color-black: $color-black,
   --color-white: $color-white,
   --color-black-fixed: $color-black,
-  --color-white-fixed: $color-white
+  --color-white-fixed: $color-white,
+
+  --color-setting-bg:#F9F9F9,
+  --color-contents-bg:$color-white,
 );
 
 $theme-map-navy: (
@@ -53,10 +59,17 @@ $theme-map-aqua: (
 
 $theme-map-dark: (
   --color-primary:#283142,
-  --color-primary-white:#283142,
-    --color-border:#343E4F,
+  --color-primary-text:#fff,
+  --color-primary-white-fixed:#fff,
+  --color-primary-dark:#4D5568,
+  --color-border:#343E4F,
+  --color-gray-text:#a4a9b6,
+  --color-black-text:#d7d6dc,
   --color-black: $color-white,
   --color-white: $color-black,
+
+  --color-setting-bg: #283142,
+  --color-contents-bg:#222529,
 );
 
 // Zeplin에 표시되는 px을 rem 단위로 변환할 때 쓰는 마법의 수
