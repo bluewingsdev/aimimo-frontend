@@ -12,27 +12,23 @@ import Register from "./pages/user/Register.vue"
 const routes = [
   {
     path: "/",
-    name: "Public",
     component: DefaultLayout,
     redirect: "/",
     children: [
       //메인
       {
         path: "/",
-        name: "Main",
         component: Main,
       },
       //회원가입
       {
         path: "/register",
-        name: "Register",
         component: Register,
       },
     ],
   },
   {
     path: "/",
-    name: "FullPage",
     component: FullLayout,
     redirect: "/",
     children: [
