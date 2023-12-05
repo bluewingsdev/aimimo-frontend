@@ -4,7 +4,10 @@
         <ul class="one-depth">
             <!-- one 기본 첫번째는 active, 선택했을때 active -->
             <li class="one active">
-                <IconSetting />
+                <IconSetting 
+                    :color="'black'"
+                    :bgColor="'blue'"
+                />
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
                     <!-- two 선택했을때 active -->
