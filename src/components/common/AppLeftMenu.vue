@@ -4,9 +4,9 @@
         <ul class="one-depth">
             <!-- one 기본 첫번째는 active, 선택했을때 active -->
             <li class="one active">
+                <!-- :hover, active인 경우에는 아래 isActive를 true로 바꿔주세요 -->
                 <IconSetting 
-                    :color="'black'"
-                    :bgColor="'blue'"
+                    :isActive=true
                 />
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
@@ -55,7 +55,9 @@
                 </ul>
             </li>
             <li class="one">
-                <img class="svg" :src="require(`@/assets/images/common/menu-setting.svg`)" alt="" />
+                <IconSetting 
+                    :isActive=false
+                />
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
                     <li class="two">
@@ -64,7 +66,9 @@
                 </ul>
             </li>
             <li class="one">
-                <img class="svg" :src="require(`@/assets/images/common/menu-setting.svg`)" alt="" />
+                <IconSetting 
+                    :isActive=false
+                />
                 <span>ONE DEPTH</span>
             </li>
         </ul>
