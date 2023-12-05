@@ -80,20 +80,18 @@
             </ul> -->
 
             <!-- settings-wrap를 컴포넌트로 만들어서 두군데에 넣고 싶습니다. -->
-            <div class="settings-wrap">
-                <!-- 메뉴 위치 : left-menu-wrap, header-wrap : 각각 active -->
-                <!-- 셋팅 영역 : left-menu-wrap active : tab-area 안에 settings-wrap -->
-                <!-- 셋팅 영역 : header-wrap active : header-wrap 안에 settings-wrap -->
-                setting...
-            </div>
+            <AppSettings />
         </div>
     </div>
 </template>
   
 <script>
+    import AppSettings from "@/components/common/AppSettings.vue";
     export default {
         name: "AppHeader",
-        components: {},
+        components: {
+            AppSettings
+        },
         data() {},
         computed: {},
         created() {},

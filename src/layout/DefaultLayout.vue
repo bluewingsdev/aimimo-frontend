@@ -14,9 +14,9 @@
 
 <script>
 
-  import AppHeader from '../components/AppHeader.vue'
-  import AppLeftMenu from '../components/AppLeftMenu.vue'
-  import AppFooter from '../components/AppFooter.vue'
+  import AppHeader from '../components/common/AppHeader.vue'
+  import AppLeftMenu from '../components/common/AppLeftMenu.vue'
+  import AppFooter from '../components/common/AppFooter.vue'
 
   export default {
     name: 'DefaultLayout',
