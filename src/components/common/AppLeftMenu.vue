@@ -4,7 +4,7 @@
         <ul class="one-depth">
             <!-- one 기본 첫번째는 active, 선택했을때 active -->
             <li class="one active">
-                <img :src="require(`@/assets/images/common/menu-setting.svg`)" alt=""/>
+                <IconSetting />
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
                     <!-- two 선택했을때 active -->
@@ -52,7 +52,7 @@
                 </ul>
             </li>
             <li class="one">
-                <img :src="require(`@/assets/images/common/menu-setting.svg`)" alt=""/>
+                <img class="svg" :src="require(`@/assets/images/common/menu-setting.svg`)" alt="" />
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
                     <li class="two">
@@ -60,8 +60,8 @@
                     </li>
                 </ul>
             </li>
-             <li class="one">
-                <img :src="require(`@/assets/images/common/menu-setting.svg`)" alt=""/>
+            <li class="one">
+                <img class="svg" :src="require(`@/assets/images/common/menu-setting.svg`)" alt="" />
                 <span>ONE DEPTH</span>
             </li>
         </ul>
@@ -69,12 +69,14 @@
 </template>
   
 <script>
+    import IconSetting from "@/components/menu/IconSetting.vue";
     export default {
         name: "AppLeftMenu",
-        components: {},
+        components: {IconSetting},
         data() {},
         computed: {},
         created() {},
-        methods: {},
+        methods: {}
     }
+    
 </script>
