@@ -53,16 +53,18 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   //const publicPages = ["/login", "/register"]
-  const publicPages = ["/login", "/register", "/"] //테스트시 페이지 추가(로그인 개발 후 제거)
-  const authRequired = !publicPages.includes(to.path)
-  const loggedIn = localStorage.getItem("user")
+  // const authRequired = !publicPages.includes(to.path)
+  // const loggedIn = localStorage.getItem("user")
 
   // 로그인이 필요한 화면 + 로그인이 안된 상태인 경우 login페이지로 이동
-  if (authRequired && !loggedIn) {
-    next("/login")
-  } else {
-    next()
-  }
+  // if (authRequired && !loggedIn) {
+  //   next("/login")
+  // } else {
+  //   next()
+  // }
+
+  //테스트 모든 페이지 접근 가능
+  next()
 })
 
 export default router

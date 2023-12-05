@@ -1,10 +1,10 @@
 <template>
     <div class="left-menu-wrap active">
-        <h1 class="logo"><img src="/assets/images/common/logo_w.png" alt=""></h1>
+        <h1 class="logo"><img :src="require(`@/assets/images/common/logo_w.png`)" alt=""></h1>
         <ul class="one-depth">
             <!-- one 기본 첫번째는 active, 선택했을때 active -->
             <li class="one active">
-                <img src="../assets/images/common/menu-setting.svg" alt=""/>
+                <img :src="require(`@/assets/images/common/menu-setting.svg`)" alt=""/>
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
                     <!-- two 선택했을때 active -->
@@ -52,7 +52,7 @@
                 </ul>
             </li>
             <li class="one">
-                <img src="../assets/images/common/menu-setting.svg" alt=""/>
+                <img :src="require(`@/assets/images/common/menu-setting.svg`)" alt=""/>
                 <span>ONE DEPTH</span>
                 <ul class="two-depth">
                     <li class="two">
@@ -61,7 +61,7 @@
                 </ul>
             </li>
              <li class="one">
-                <img src="../assets/images/common/menu-setting.svg" alt=""/>
+                <img :src="require(`@/assets/images/common/menu-setting.svg`)" alt=""/>
                 <span>ONE DEPTH</span>
             </li>
         </ul>
