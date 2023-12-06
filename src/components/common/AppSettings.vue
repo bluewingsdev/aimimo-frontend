@@ -10,17 +10,17 @@
             <div class="settings">
                 <div class="tit">색상모드</div>
                 <ul class="color-set">
-                    <li class="navy active"><span class=""></span>Navy</li>
-                    <li class="gray"><span class=""></span>Gray</li>
-                    <li class="orange"><span class=""></span>Orange</li>
-                    <li class="blue"><span class=""></span>Blue</li>
-                    <li class="green"><span class=""></span>Green</li>
-                    <li class="aqua"><span class=""></span>AquaBlue</li>
-                    <li class="dark"><span class=""></span>Dark</li>
+                    <li class="navy" :class="{active: themeColor === 'navy'}" @click="onColorSetClick('navy')"><span class=""></span>Navy</li>
+                    <li class="gray" :class="{active: themeColor === 'gray'}" @click="onColorSetClick('gray')"><span class=""></span>Gray</li>
+                    <li class="orange" :class="{active: themeColor === 'orange'}" @click="onColorSetClick('orange')"><span class=""></span>Orange</li>
+                    <li class="blue" :class="{active: themeColor === 'blue'}" @click="onColorSetClick('blue')"><span class=""></span>Blue</li>
+                    <li class="green" :class="{active: themeColor === 'green'}" @click="onColorSetClick('green')"><span class=""></span>Green</li>
+                    <li class="aqua" :class="{active: themeColor === 'aqua'}" @click="onColorSetClick('aqua')"><span class=""></span>AquaBlue</li>
+                    <li class="dark" :class="{active: themeColor === 'dark'}" @click="onColorSetClick('dark')"><span class=""></span>Dark</li>
                 </ul>
-                <div class="tit">
+                <div class="tit" @click="onToggleMenuClick()">
                     메뉴위치
-                    <span class="round-toggle">
+                    <span class="round-toggle" :class="{active : isTopMenu}">
                         &nbsp;
                     </span>
                 </div>
@@ -39,14 +39,27 @@
 </template>
   
 <script>
-
     export default {
         name: "AppSettings",
         components: {},
         data() {},
-        computed: {},
+        computed: {
+            themeColor() {
+                return this.$store.state.common.themeColor
+            },
+            isTopMenu() {
+                return this.$store.state.common.isTopMenu
+            },
+        },
         created() {},
-        methods: {},
+        methods: {
+            onColorSetClick(colorSet) {
+                this.$store.dispatch("common/setThemeColor", colorSet);
+            },
+            onToggleMenuClick() {
+                this.$store.dispatch("common/toggleTopMenu");
+            }
+        },
     }
 </script>
   

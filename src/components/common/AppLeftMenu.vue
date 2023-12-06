@@ -1,5 +1,5 @@
 <template>
-    <div class="left-menu-wrap active">
+    <div class="left-menu-wrap" :class="{active: !isTopMenu}">
         <h1 class="logo"><img :src="require(`@/assets/images/common/logo_w.png`)" alt=""></h1>
         <ul class="one-depth">
             <!-- one 기본 첫번째는 active, 선택했을때 active -->
@@ -131,7 +131,11 @@
             }
             
         },
-        computed: {},
+        computed: {
+            isTopMenu() {
+                return this.$store.state.common.isTopMenu
+            },
+        },
         created() {},
         methods: {
             onMenuClick(menu) {

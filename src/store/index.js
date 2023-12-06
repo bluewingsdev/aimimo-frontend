@@ -1,9 +1,11 @@
 import { createStore } from "vuex";
+import { common } from "./common";
 import { auth } from "./auth.module";
 
 const store = createStore({
     modules: {
-        auth,
+        common,
+        auth
     },
 });
 

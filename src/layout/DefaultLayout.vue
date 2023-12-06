@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :class="themeColor">
     <AppHeader/>
     <div class="contents-wrap">
       <AppLeftMenu/>
@@ -41,6 +41,9 @@
     }),
 
     computed: {
+      themeColor() {
+        return this.$store.state.common.themeColor
+      },
       currentUser() {
         return this.$store.state.auth.user;
       },

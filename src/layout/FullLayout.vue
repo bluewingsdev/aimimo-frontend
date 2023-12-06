@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container" :class="themeColor">
     <div class="contents-wrap">
-    <router-view />
+      <router-view />
     </div>
   </div>
 </template>
@@ -12,8 +12,11 @@
     name: "FullLayout",
     computed: {
       ...mapState({
-
+        
       }),
+      themeColor() {
+        return this.$store.state.common.themeColor
+      },
     },
   };
 </script>  
