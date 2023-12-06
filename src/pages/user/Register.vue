@@ -1,9 +1,7 @@
 <template>
-  <v-row class="container">
-    <v-col :cols="12">
-      회원가입
-    </v-col>
-  </v-row>
+  <div class="container">
+   <div>회원가입</div>
+  </div>
 </template>
   
 <script>

@@ -64,7 +64,6 @@ body {
 
   .contents-wrap {
     overflow: hidden;
-    overflow-y: auto;
     position: relative;
     flex: 1 1;
     max-width: 1920px;
@@ -180,7 +179,6 @@ body {
 /** TOP MENU */
 .header-wrap {
   height: 0;
-  border-bottom: 1px solid var(--color-border);
   transition: all 0.4s ease-out;
   z-index:2;
   overflow:hidden;
@@ -188,6 +186,22 @@ body {
     height: 48px;
     .header {
       height:48px;
+      top:0;
+    }
+  }
+  h1.logo {
+    width:280px;
+    background-color: var(--color-primary-dark);
+    
+    display: flex;
+    height: 48px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 toRem(15);
+    cursor: pointer;
+
+    img {
+      width: toRem(100);
     }
   }
 
@@ -195,16 +209,17 @@ body {
     width: 100%;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -48px;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    // align-items: baseline;
     height: 0;
-    overflow: hidden;
+    transition: all 0.4s ease-out;
+   
     &.active {
       height:190px;
       background-color: var(--color-primary-white-fixed);
-      border-bottom: 1px solid var(--color-border);
+      
     }
 
     .one-depth {
@@ -322,6 +337,11 @@ body {
   background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-dark) 80px, var(--color-primary-dark) 100%);
   border-right: 1px solid var(--color-border);
   transition: all 0.4s ease-out;
+  display:flex;
+  flex-direction: column;
+  .left-menus {
+    flex:1 1;
+  }
   .menu-wrap {
     height:100%;
     overflow-y: auto;
@@ -332,9 +352,10 @@ body {
   }
 
   h1.logo {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-dark);
+    border-bottom: 1px solid var(--color-border);
     display:flex;
-    height:toRem(48);
+    height:48px;
     justify-content: flex-start;
     align-items: center;
     padding:0 toRem(15);
@@ -461,6 +482,7 @@ body {
   border-left: 1px solid var(--color-border);
   transition: all 0.4s ease-out;
   display:flex;
+  align-self: stretch;
   >div { 
     @include font(bold, 13); 
     padding:0 toRem(20); 
@@ -483,8 +505,8 @@ body {
     height:0px;
     overflow:hidden;
     transition: all 0.4s ease-out;
-    position:absolute; left:-1px; top:toRem(50);
-    width: toRem(150); border: 1px solid var(--color-border); border-bottom:none;
+    position:absolute; left:-1px; top:48px;
+    width: toRem(150); border: 1px solid var(--color-border); border-bottom:none; border-top: none;
     background: var(--color-primary-dark);
     .tit {
       @include font(bold, 13);
@@ -552,13 +574,14 @@ body {
 
 /** TABS */
 .tab-area {
-  height: toRem(50);
-  
+  height: 48px;
   transition: all 0.4s ease-out;
+  border-top: 1px solid var(--color-border);
 }
 
 /**  */
 .open-page-wrap {
+  height: 48px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-border);

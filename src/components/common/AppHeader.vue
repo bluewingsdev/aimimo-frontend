@@ -2,11 +2,12 @@
     <div class="header-wrap" :class="{ active: isTopMenu }" >
         <!-- one-depth에 mouse over하면 header에 active -->
         <div class="header">
-            <h1 class="logo"><img src="/assets/images/common/logo_w.png" alt=""></h1>
+             <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
             <ul class="one-depth">
                 <!-- one 기본 첫번째는 active, 선택했을때 active -->
                 <li class="one active">
-                    <img src="../assets/images/common/menu-setting.svg" alt="" />
+                    <IconSetting 
+                    />
                     <span>ONE DEPTH</span>
                     <ul class="two-depth">
                         <!-- two 선택했을때 active -->
@@ -86,11 +87,12 @@
 </template>
   
 <script>
+    import IconSetting from "@/components/menu/IconSetting.vue";
     import AppSettings from "@/components/common/AppSettings.vue";
     export default {
         name: "AppHeader",
         components: {
-            AppSettings
+            AppSettings,IconSetting
         },
         data() {},
         computed: {
