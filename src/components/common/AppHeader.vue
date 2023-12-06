@@ -1,6 +1,6 @@
 <template>
     <div class="header-wrap" :class="{ active: isTopMenu }" >
-        <div class="header">
+        <div class="header" @mouseout="onMenuReset(true)">
             <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
             <ul class="one-depth">
                 <template v-for="(depth1) in menuList.filter(x => x.upMenuId == null)" :key="depth1">
@@ -170,6 +170,10 @@
                 this.menuList.filter(x => x.upMenuId == null && x.menuId !== menu.menuId).forEach(x => x.isActive = false);
                 this.menuList.find(x => x.menuId === menu.menuId).isActive = true;
             },
+            onMenuReset(isBool) {
+                this.menuList.forEach(x => x.isActive = isBool);
+            },
+            
             movePage() {
 
             }
