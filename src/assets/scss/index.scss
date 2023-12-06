@@ -8,7 +8,7 @@
 // @import './divider.scss';
 
 @import './common.scss';
-
+@import './layout.scss';
 
 html {
   height: 100%;
@@ -90,14 +90,8 @@ body {
 }
 
 /** LOGIN */
-.login-wrapper {
-  position: relative;
-  z-index: 3;
-}
-
 .login-wrap {
   position: relative;
-  z-index: 2;
   left: 0;
   top: 0;
   bottom: 0;
@@ -115,10 +109,10 @@ body {
     visibility: hidden !important;
     width: 100%;
     height: 100%;
-    transition: all 0.5s ease-out;
+    transition: all 0.4s ease-out;
 
     &.active {
-      transition: all 0.5s ease-out;
+      transition: all 0.4s ease-out;
       opacity: 1 !important;
       visibility: visible !important;
     }
@@ -159,23 +153,35 @@ body {
     gap: 10px;
 
     li {
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
       background: #000;
-      border-radius: 10px;
+      border-radius: 15px;
 
       &.active {
         background: #ccc;
       }
     }
   }
+  .login-form {
+    position:absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+    box-shadow: 0 4px 50px rgba(25, 47, 102, 0.30);
+    background: $color-white;
+    width:toRem(260);
+    border-radius: toRem(30);
+    padding: toRem(30);
+    display:flex;
+    flex-direction: column;
+    .logo { width:toRem(150); justify-self: center; img {width:100%; }}
+  }
 }
+
 
 /** TOP MENU */
 .header-wrap {
   height: 0;
   border-bottom: 1px solid var(--color-border);
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
   z-index:2;
   overflow:hidden;
   &.active {
@@ -208,7 +214,7 @@ body {
       justify-content: space-between;
       align-items: baseline;
       background-color: var(--color-primary);
-      transition: all 0.2s ease-out;
+      transition: all 0.4s ease-out;
       &:hover {
         background-color: var(--color-primary-white-fixed);
         .one {
@@ -225,7 +231,7 @@ body {
         gap: 6px;
         color: var(--color-primary-white-fixed);
         // background: var(--color-primary);
-        transition: all 0.2s ease-out;
+        transition: all 0.4s ease-out;
         position:relative;
         @include font(bold, 13);
         height: 48px;
@@ -248,7 +254,7 @@ body {
         position:absolute; top:70px; left:0;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.2s ease-out;
+        transition: all 0.4s ease-out;
         padding:0 toRem(10);
         .two {
           >.boxs {
@@ -262,7 +268,7 @@ body {
               display: block;
               background: url(../images/common/menu-arrow.svg) no-repeat center center;
               rotate: 0;
-              transition: all 0.2s ease-out;
+              transition: all 0.4s ease-out;
             }
           }
 
@@ -285,7 +291,7 @@ body {
         height: 0;
         max-height: 500px;
         overflow: hidden;
-        transition: all 0.2s ease-out;
+        transition: all 0.4s ease-out;
         padding: 0;
 
         .three {
@@ -315,7 +321,7 @@ body {
   overflow: hidden;
   background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-dark) 80px, var(--color-primary-dark) 100%);
   border-right: 1px solid var(--color-border);
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
   .menu-wrap {
     height:100%;
     overflow-y: auto;
@@ -349,7 +355,7 @@ body {
       gap: 6px;
       color: var(--color-primary-white-fixed);
       background: var(--color-primary);
-      transition: all 0.2s ease-out;
+      transition: all 0.4s ease-out;
       @include font(bold, 13);
       &.active,
       &:hover {
@@ -360,7 +366,7 @@ body {
 
       &.active {
         .two-depth {
-          right: 0;
+          opacity: 1;
         }
       }
 
@@ -370,9 +376,10 @@ body {
     .two-depth {
       position: absolute;
       width: 199px;
-      right: -100%;
+      right: 0;
       top: 0;
-      transition: all 0.2s ease-out;
+      opacity: 0;
+      transition: all 0.4s ease-out;
       *{color: var(--color-primary-text);}
       .two {
         &:first-child {
@@ -399,7 +406,7 @@ body {
             display: block;
             background: url(../images/common/menu-arrow.svg) no-repeat center center;
             rotate: 0;
-            transition: all 0.2s ease-out;
+            transition: all 0.4s ease-out;
           }
         }
 
@@ -426,7 +433,7 @@ body {
       height: 0;
       max-height: 500px;
       overflow: hidden;
-      transition: all 0.2s ease-out;
+      transition: all 0.4s ease-out;
       padding: 0;
 
       .three {
@@ -452,7 +459,7 @@ body {
 .settings-wrap {
   background: var(--color-primary-dark);
   border-left: 1px solid var(--color-border);
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
   display:flex;
   >div { 
     @include font(bold, 13); 
@@ -467,9 +474,17 @@ body {
       span {color: var(--color-primary); border-bottom: 1px solid var(--color-primary);}
     }
   }
+  .setting-btn {
+    &:hover {
+      .settings { height:toRem(300); border-bottom: 1px solid var(--color-border);}
+    }
+  }
   .settings {
-    position:absolute; left:0; top:toRem(50);
-    width: toRem(150); border: 1px solid var(--color-border);
+    height:0px;
+    overflow:hidden;
+    transition: all 0.4s ease-out;
+    position:absolute; left:-1px; top:toRem(50);
+    width: toRem(150); border: 1px solid var(--color-border); border-bottom:none;
     background: var(--color-primary-dark);
     .tit {
       @include font(bold, 13);
@@ -480,6 +495,56 @@ body {
     }
     .color-set {
       background: var(--color-setting-bg);
+      padding: toRem(5) 0;
+      li {
+        padding:toRem(4) toRem(13);
+        display:flex; align-items: center;
+        &:hover, &.active {
+          background: var(--color-setting-li-active-bg);
+          span {
+            background-image: url(../images/common/color-check.svg);
+            background-position: center center;
+            background-size: toRem(16);
+          }
+        }
+        span {  width:toRem(16); height:toRem(16); border-radius: toRem(16);margin-right:toRem(5);}
+        &.navy {
+          span {
+            background-color: $color-navy;
+          }
+        }
+        &.aqua {
+          span {
+            background-color: $color-aqua;
+          }
+        }
+        &.gray {
+          span {
+            background-color: $color-gray;
+          }
+        }
+
+        &.green {
+          span {
+            background-color: $color-green;
+          }
+        }
+        &.orange {
+          span {
+            background-color: $color-orange;
+          }
+        }
+        &.blue {
+          span {
+            background-color: $color-blue;
+          }
+        }
+        &.dark {
+          span {
+            background-color: $color-dark;
+          }
+        }
+      }
     }
   }
 }
@@ -489,7 +554,7 @@ body {
 .tab-area {
   height: toRem(50);
   
-  transition: all 0.5s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 /**  */

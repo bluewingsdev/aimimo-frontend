@@ -10,6 +10,7 @@ $color-orange: #EE7910;
 $color-blue: #0072BB;
 $color-green : #12B967;
 $color-aqua: #11ACA8;
+$color-dark: #283142;
 
 $color-black: #000000;
 $color-white: #ffffff;
@@ -35,30 +36,37 @@ $theme-map-palette: (
   --color-white-fixed: $color-white,
 
   --color-setting-bg:#F9F9F9,
+  --color-setting-li-active-bg:#EFF0F6,
   --color-contents-bg:$color-white,
 );
 
 $theme-map-navy: (
  --color-primary:$color-navy,
+ --color-primary-text:$color-navy,
 );
 $theme-map-gray: (
   --color-primary:$color-gray,
+  --color-primary-text:$color-gray,
 );
 $theme-map-orange: (
   --color-primary:$color-orange,
+  --color-primary-text:$color-orange,
 );
 $theme-map-blue: (
   --color-primary:$color-blue,
+  --color-primary-text:$color-blue,
 );
 $theme-map-green: (
   --color-primary:$color-green,
+  --color-primary-text:$color-green,
 );
 $theme-map-aqua: (
   --color-primary:$color-aqua,
+  --color-primary-text:$color-aqua,
 );
 
 $theme-map-dark: (
-  --color-primary:#283142,
+  --color-primary:$color-dark,
   --color-primary-text:#fff,
   --color-primary-white-fixed:#fff,
   --color-primary-dark:#4D5568,
@@ -68,7 +76,7 @@ $theme-map-dark: (
   --color-black: $color-white,
   --color-white: $color-black,
 
-  --color-setting-bg: #283142,
+  --color-setting-bg: $color-dark,
   --color-contents-bg:#222529,
 );
 

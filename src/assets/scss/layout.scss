@@ -3,24 +3,24 @@
 /* 행과 열의 여백을 조정하기 위한 값. 여백은 style="gap:px" */
 .stack-row-inline {
     display: inline-grid;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
     align-items: center;
 }
 
 .stack-column-inline {
     display: inline-grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     align-items: center;
 }
 
 .stack-row {
     display: grid;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
 }
 
 .stack-column {
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
 
     &.half-width {
         grid-template-columns: 1fr 1fr;

@@ -1,5 +1,5 @@
 <template>
-    <div class="header-wrap">
+    <div class="header-wrap" :class="{ active: isTopMenu }" >
         <!-- one-depth에 mouse over하면 header에 active -->
         <div class="header">
             <h1 class="logo"><img src="/assets/images/common/logo_w.png" alt=""></h1>
@@ -93,7 +93,11 @@
             AppSettings
         },
         data() {},
-        computed: {},
+        computed: {
+            isTopMenu() {
+                return this.$store.state.common.isTopMenu
+            },
+        },
         created() {},
         methods: {},
     }

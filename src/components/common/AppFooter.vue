@@ -1,7 +1,8 @@
 <template>
-    <div class="footer">
+    <div></div>
+    <!-- <div class="footer">
         <span>2023. Blue Wings all rights reserved.</span>
-    </div>
+    </div> -->
 </template>
   
 <script>

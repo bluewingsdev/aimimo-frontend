@@ -5,7 +5,7 @@
         <!-- 셋팅 영역 : header-wrap active : header-wrap 안에 <AppSettings/> -->
         <div class="">텝닫기</div>
         <div class="">새로고침</div>
-        <div class="">
+        <div class="setting-btn">
             설정
             <div class="settings">
                 <div class="tit">색상모드</div>
