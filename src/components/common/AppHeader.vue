@@ -2,14 +2,14 @@
     <div class="header-wrap" :class="{ active: isTopMenu }" >
         <div class="header" @mouseout="onMenuReset(true)">
             <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
-            <ul class="one-depth">
+            <ul class="one-depth" :class="{ hover: isMenuOpen}" @mouseleave="onMenuMouseleave()">
                 <template v-for="(depth1) in menuList.filter(x => x.upMenuId == null)" :key="depth1">
                     <!-- 현재 상태에서.. 
                         one 를 오버하면..
                         one-depth 에 addClass "hover" 하고,
                         아웃하면 removeClass "hover" 해주세요.
                     -->
-                    <li class="one" @mouseover="onMenuMouseover(depth1)" >
+                    <li class="one" @mouseover="onMenuMouseover(depth1)">
                         <IconSetting 
                             :isActive="depth1.isActive"
                         />
@@ -55,7 +55,7 @@
             </ul> -->
 
              <!-- 왼쪽 메뉴가 열렸을땡는 안보이게 처리 -->
-            <AppSettings />
+            <AppSettings v-if="isTopMenu"/>
         </div>
     </div>
 </template>
@@ -68,6 +68,7 @@
         components: {IconSetting,AppSettings},
         data() {
             return {
+                isMenuOpen: false,
                 menuList: [
                     {
                         menuId: 'MENU 1',
@@ -169,6 +170,10 @@
             onMenuMouseover(menu) {
                 this.menuList.filter(x => x.upMenuId == null && x.menuId !== menu.menuId).forEach(x => x.isActive = false);
                 this.menuList.find(x => x.menuId === menu.menuId).isActive = true;
+                this.isMenuOpen = true;
+            },
+            onMenuMouseleave() {
+                this.isMenuOpen = false;
             },
             onMenuReset(isBool) {
                 this.menuList.forEach(x => x.isActive = isBool);

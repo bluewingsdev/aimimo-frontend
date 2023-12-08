@@ -9,7 +9,7 @@
               tab...
           </div>
           <!-- 상단메뉴가 열렸을땡는 안보이게 처리 -->
-          <AppSettings />
+          <AppSettings v-if="!isTopMenu"/>
         </div>
         <router-view />
         <AppFooter/>
@@ -46,6 +46,9 @@
       },
       currentUser() {
         return this.$store.state.auth.user;
+      },
+      isTopMenu() {
+        return this.$store.state.common.isTopMenu;
       },
     },
     methods: {
