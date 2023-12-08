@@ -9,11 +9,11 @@
                 <div class="stack-column" style="gap:30px">
                     <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
                     <div class="stack-column" style="gap:10px">
-                        <input class="input" type="text" placeholder="ID"/>
-                        <input class="input" type="password" placeholder="Password"/>
+                        <input class="input" type="text" placeholder="ID" v-model="userId"/>
+                        <input class="input" type="password" placeholder="Password" v-model="userPassword"/>
                     </div>
                 </div>
-                <button class="login">LOGIN</button>
+                <button class="login" @click="handleLogin()">LOGIN</button>
                 <div class="stack-row justify-content-space-between">
                     <div class="checkbox">
                         <input type="checkbox" class="check-box">
@@ -26,7 +26,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>
@@ -41,20 +40,22 @@ export default {
     },
     data() {
         return {
-        loginItems:[0,1,2,3,4],
-        activeIndex: parseInt(localStorage.getItem("loginImagePosition")) || 0,
-        loading: false,
-        message: ""
+            loginItems:[0,1,2,3,4],
+            activeIndex: parseInt(localStorage.getItem("loginImagePosition")) || 0,
+            loading: false,
+            message: "",
+            userId: "",
+            userPassword: ""
         };
     },
     computed: {
         loggedIn() {
-        return this.$store.state.auth.status.loggedIn;
+            return this.$store.state.auth.status.loggedIn;
         },
     },
     created() {
         if (this.loggedIn) {
-        this.$router.push("/profile");
+            this.$router.push("/");
         }
     },
     methods: {
@@ -62,23 +63,37 @@ export default {
             this.activeIndex = index;
             localStorage.setItem("loginImagePosition", index);
         },
-        handleLogin(user) {
+        handleLogin() {
             this.loading = true;
 
-            this.$store.dispatch("auth/login", user).then(
-            () => {
-                this.$router.push("/profile");
-            },
-            (error) => {
-                this.loading = false;
-                this.message =
-                (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-                error.message ||
-                error.toString();
-            }
-            );
+            alert("id: " + this.userId + "/ password: " + this.userPassword);
+
+            this.$store.state.auth.status.loggedIn = true;
+
+            this.$store.state.auth.user = {
+                userId : this.userId,
+                password: this.userPassword,
+                userNm: this.userId
+            };
+
+            localStorage.setItem('user', JSON.stringify(this.$store.state.auth.user));
+
+            this.$router.push("/");
+
+            // this.$store.dispatch("auth/login", user).then(
+            //     () => {
+            //         this.$router.push("/profile");
+            //     },
+            //     (error) => {
+            //         this.loading = false;
+            //         this.message =
+            //         (error.response &&
+            //         error.response.data &&
+            //         error.response.data.message) ||
+            //         error.message ||
+            //         error.toString();
+            //     }
+            // );
         },
     },
 };

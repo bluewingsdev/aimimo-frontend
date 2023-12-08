@@ -4,7 +4,7 @@
         <!-- 셋팅 영역 : left-menu-wrap active : open-page-wrap 안에 <AppSettings/> -->
         <!-- 셋팅 영역 : header-wrap active : header-wrap 안에 <AppSettings/> -->
         <div class="">텝닫기</div>
-        <div class="">새로고침</div>
+        <div class="" @click="reload()">새로고침</div>
         <div class="setting-btn">
             설정
             <div class="settings">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="member"><span>홍길동</span>님</div>
+        <div class="member"><span>{{ currentUser.userNm }}</span>님</div>
 
     </div>
 </template>
@@ -50,6 +50,9 @@
             isTopMenu() {
                 return this.$store.state.common.isTopMenu
             },
+            currentUser() {
+                return this.$store.state.auth.user;
+            }
         },
         created() {},
         methods: {
@@ -58,6 +61,9 @@
             },
             onToggleMenuClick() {
                 this.$store.dispatch("common/toggleTopMenu");
+            },
+            reload() {
+                this.$router.go(this.$router.currentRoute);
             }
         },
     }
