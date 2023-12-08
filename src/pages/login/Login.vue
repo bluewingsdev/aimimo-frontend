@@ -66,8 +66,6 @@ export default {
         handleLogin() {
             this.loading = true;
 
-            alert("id: " + this.userId + "/ password: " + this.userPassword);
-
             this.$store.state.auth.status.loggedIn = true;
 
             this.$store.state.auth.user = {

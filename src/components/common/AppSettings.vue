@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="member"><span>{{ currentUser.userNm }}</span>님</div>
+        <div class="member"><span v-if="currentUser">{{ currentUser.userNm }}</span>님</div>
 
     </div>
 </template>
@@ -64,6 +64,13 @@
             },
             reload() {
                 this.$router.go(this.$router.currentRoute);
+            },
+            handleLogout() {
+                this.$store.dispatch("auth/logout").then(
+                    () => {
+                        this.$router.go("/");
+                    }
+                );
             }
         },
     }
