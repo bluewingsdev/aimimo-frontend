@@ -76,11 +76,11 @@ export default {
 
             localStorage.setItem('user', JSON.stringify(this.$store.state.auth.user));
 
-            this.$router.push("/");
+            this.$router.go("/");
 
             // this.$store.dispatch("auth/login", user).then(
             //     () => {
-            //         this.$router.push("/profile");
+            //         this.$router.go("/");
             //     },
             //     (error) => {
             //         this.loading = false;
