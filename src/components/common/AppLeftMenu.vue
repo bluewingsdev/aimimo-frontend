@@ -16,7 +16,11 @@
                                     <div v-if="!depth2.url" class="boxs" @click="onMenuClick(depth2)">
                                         <span class="">{{ depth2.menuNm }}</span>
                                         <!-- three depth가 있을때 arr -->
-                                        <span v-if="menuList.filter(x => x.upMenuId == depth2.menuId).length > 0" class="arr">&nbsp;</span>
+                                        <span v-if="menuList.filter(x => x.upMenuId == depth2.menuId).length > 0" class="arr">
+                                            <IcMenuArrow 
+                                                :isActive="depth2.isActive"
+                                            />
+                                        </span>
                                     </div>
                                     <router-link v-else class="boxs" :to="depth2.url">
                                         <span class="">{{ depth2.menuNm }}</span>
@@ -46,9 +50,10 @@
   
 <script>
     import IconSetting from "@/components/menu/IconSetting.vue";
+    import IcMenuArrow from "@/components/menu/IcMenuArrow.vue";
     export default {
         name: "AppLeftMenu",
-        components: {IconSetting},
+        components: {IconSetting,IcMenuArrow},
         data() {
             return {
                 menuList: [

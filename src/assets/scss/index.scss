@@ -163,7 +163,7 @@ body {
     }
   }
   .login-form {
-    position:absolute; left:50%; top:50%; transform: translate(-50%,-50%);
+    position:absolute; left:50%; top:50%; transform: translate(100%,-50%);
     box-shadow: 0 4px 50px rgba(25, 47, 102, 0.30);
     background: $color-white;
     width:toRem(260);
@@ -172,6 +172,12 @@ body {
     display:flex;
     flex-direction: column;
     .logo { width:toRem(150); justify-self: center; img {width:100%; }}
+  }
+}
+
+@media (max-width: 1400px) {
+  .login-wrap .login-form {
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -234,14 +240,14 @@ body {
       height:48px;
       transition: all 0.4s ease-out;
       overflow: hidden;
-      // border-bottom: 1px solid var(--color-border);
       &.hover {
         // background-color: var(--color-primary-white-fixed);
-        background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary) 48px, var(--color-primary-dark) 48px, var(--color-primary-dark) 100%);
+        background: linear-gradient(to bottom, var(--color-primary-dark) 0%, var(--color-primary-dark) 48px, var(--color-primary) 48px, var(--color-primary) 100%);
         height:200px;
         border-bottom: 1px solid var(--color-border);
         .one {
-          color: var(--color-primary-white-fixed);
+          color: var(--color-primary);
+          background: var(--color-primary-white-fixed);
         }
       }
 
@@ -259,13 +265,10 @@ body {
         position:relative;
         @include font(bold, 13);
         height: 48px;
-        span {
-          
-        }
 
         &:hover {
-          color: var(--color-primary);
-          background: var(--color-primary-white-fixed);
+          color: var(--color-primary-white-fixed);
+            background: var(--color-primary);
           .two-depth {
             top: 48px;
             opacity: 1;
@@ -273,6 +276,11 @@ body {
           }
         }
         cursor: pointer;
+        &:first-child {
+          .two-depth {
+            border-left: none;
+          }
+        }
       }
 
       .two-depth {
@@ -284,17 +292,19 @@ body {
         padding:toRem(4) toRem(15);
         border-left: 1px solid var(--color-border);
         border-right: 1px solid var(--color-border);
+        
         .two {
           >.boxs {
             display: flex;
             align-items: center;
             padding: toRem(7) 0;
-            color: var(--color-primary);
+            color: var(--color-primary-white-fixed);
+            
             .arr {
               width: toRem(12);
               height: toRem(12);
               display: block;
-              background: url(../images/common/menu-arrow.svg) no-repeat center center;
+              // background: url(../images/common/menu-arrow.svg) no-repeat center center;
               rotate: 270deg;
               transition: all 0.4s ease-out;
             }
@@ -323,7 +333,8 @@ body {
 
         .three {
           padding: toRem(7) toRem(15);
-          color: var(--color-primary);
+          color: var(--color-primary-white-fixed);
+          
 
           &:hover {
             background: var(--color-border);
@@ -349,7 +360,7 @@ body {
   height: 100%;
   overflow: hidden;
   background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-dark) 80px, var(--color-primary-dark) 100%);
-  border-right: 1px solid var(--color-border);
+  border-right: none;
   transition: all 0.4s ease-out;
   display:flex;
   flex-direction: column;
@@ -364,6 +375,7 @@ body {
   &.active {
     width: 280px;
     left:0;
+    border-right: 1px solid var(--color-border);
   }
 
   h1.logo {
@@ -442,7 +454,7 @@ body {
             width: toRem(12);
             height: toRem(12);
             display: block;
-            background: url(../images/common/menu-arrow.svg) no-repeat center center;
+            // background: url(../images/common/menu-arrow.svg) no-repeat center center;
             rotate: 0;
             transition: all 0.4s ease-out;
           }

@@ -11,7 +11,7 @@
                     -->
                     <li class="one" @mouseover="onMenuMouseover(depth1)">
                         <IconSetting 
-                            :isActive="depth1.isActive"
+                            :isActive="!depth1.isActive"
                         />
                         <span>{{ depth1.menuNm }}</span>
                         <ul class="two-depth" v-if="menuList.filter(x => x.upMenuId == depth1.menuId).length > 0">
@@ -19,7 +19,12 @@
                                 <li class="two" :class="{ active: depth2.isActive }">
                                     <div v-if="!depth2.url" class="boxs" @click="onMenuClick(depth2)">
                                         <span class="">{{ depth2.menuNm }}</span>
-                                        <span v-if="menuList.filter(x => x.upMenuId == depth2.menuId).length > 0" class="arr">&nbsp;</span>
+                                        
+                                        <span v-if="menuList.filter(x => x.upMenuId == depth2.menuId).length > 0" class="arr">
+                                        <IcMenuArrow 
+                                                :isActive="depth2.isActive"
+                                            />
+                                        </span>
                                     </div>
                                     <router-link v-else class="boxs" :to="depth2.url">
                                         <span class="">{{ depth2.menuNm }}</span>
@@ -62,10 +67,11 @@
   
 <script>
     import IconSetting from "@/components/menu/IconSetting.vue";
+    import IcMenuArrow from "@/components/menu/IcMenuArrow.vue";
     import AppSettings from "@/components/common/AppSettings.vue";
     export default {
         name: "AppHeader",
-        components: {IconSetting,AppSettings},
+        components: {IconSetting,IcMenuArrow,AppSettings},
         data() {
             return {
                 isMenuOpen: false,
