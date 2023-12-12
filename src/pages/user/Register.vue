@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-   <div>회원가입</div>
-  </div>
+  <div>회원가입</div>
 </template>
   
 <script>
@@ -25,9 +23,7 @@
       },
     },
     mounted() {
-      if (this.loggedIn) {
-        this.$router.push("/profile");
-      }
+
     },
     methods: {
       handleRegister(user) {
