@@ -17,7 +17,7 @@
             },
             defalutColor: {
                 type: String,
-                default:`var(--color-primary-white-fixed)`
+                default:`var(--color-white-fixed)`
             },
             activeColor: {
                 type: String,

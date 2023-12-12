@@ -12,6 +12,15 @@ $color-green : #12B967;
 $color-aqua: #11ACA8;
 $color-dark: #283142;
 
+$color-navy-bg: #0d518b33; 
+$color-gray-bg: #6c757e33;
+$color-orange-bg: #ee791033;
+$color-blue-bg: #0072bb33;
+$color-green-bg : #12b96733;
+$color-aqua-bg: #11aca833;
+$color-dark-bg: #28314233;
+$color-top-menu-bg:#ffffff33;
+
 $color-black: #000000;
 $color-white: #ffffff;
 
@@ -24,8 +33,9 @@ $placeHolder:#888;
 $theme-map-palette: (
   --color-primary:$color-navy,
   --color-primary-text:$color-navy,
-  --color-primary-white-fixed:$color-white,
-  --color-primary-dark:$color-white,
+  --color-menu-bg:$color-navy-bg,
+  --color-top-menu-bg:$color-top-menu-bg,
+  
   --color-gray-text:#a4a9b6,
   --color-black-text:#475663,
   --color-border:#E2E3EB,
@@ -34,6 +44,7 @@ $theme-map-palette: (
   --color-white: $color-white,
   --color-black-fixed: $color-black,
   --color-white-fixed: $color-white,
+  --color-white-dark:$color-white,
 
   --color-setting-bg:#F9F9F9,
   --color-setting-li-active-bg:#EFF0F6,
@@ -43,38 +54,46 @@ $theme-map-palette: (
 $theme-map-navy: (
  --color-primary:$color-navy,
  --color-primary-text:$color-navy,
+ --color-menu-bg:$color-navy-bg,
 );
 $theme-map-gray: (
   --color-primary:$color-gray,
   --color-primary-text:$color-gray,
+  --color-menu-bg:$color-gray-bg,
 );
 $theme-map-orange: (
   --color-primary:$color-orange,
   --color-primary-text:$color-orange,
+  --color-menu-bg:$color-orange-bg,
 );
 $theme-map-blue: (
   --color-primary:$color-blue,
   --color-primary-text:$color-blue,
+  --color-menu-bg:$color-blue-bg,
 );
 $theme-map-green: (
   --color-primary:$color-green,
   --color-primary-text:$color-green,
+  --color-menu-bg:$color-green-bg,
 );
 $theme-map-aqua: (
   --color-primary:$color-aqua,
   --color-primary-text:$color-aqua,
+  --color-menu-bg:$color-aqua-bg,
 );
 
 $theme-map-dark: (
   --color-primary:$color-dark,
   --color-primary-text:#fff,
-  --color-primary-white-fixed:#fff,
-  --color-primary-dark:#4D5568,
+  --color-menu-bg:$color-dark-bg,
+  
   --color-border:#343E4F,
   --color-gray-text:#a4a9b6,
   --color-black-text:#d7d6dc,
   --color-black: $color-white,
   --color-white: $color-black,
+  --color-white-fixed:#fff,
+  --color-white-dark:#4D5568,
 
   --color-setting-bg: $color-dark,
   --color-contents-bg:#222529,

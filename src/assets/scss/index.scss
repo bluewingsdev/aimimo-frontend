@@ -204,20 +204,13 @@ body {
     top: -48px;
     display: flex;
     justify-content: space-between;
-    // align-items: baseline;
     height: 0;
     transition: all 0.4s ease-out;
-    background-color: var(--color-primary-white-fixed);
-    // &:hover {
-    //   background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary) 48px, var(--color-primary-dark) 48px, var(--color-primary-dark) 100%);
-    // }
+    background-color: var(--color-white-fixed);
    
-    &.active {
-      // height:190px;
-    }
     h1.logo {
       width: 150px;
-      background-color: var(--color-primary-dark);
+      background-color: var(--color-white-dark);
 
       display: flex;
       height: 48px;
@@ -236,18 +229,17 @@ body {
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      background-color: var(--color-primary-dark);
+      background-color: var(--color-white-dark);
       height:48px;
       transition: all 0.4s ease-out;
       overflow: hidden;
       &.hover {
-        // background-color: var(--color-primary-white-fixed);
-        background: linear-gradient(to bottom, var(--color-primary-dark) 0%, var(--color-primary-dark) 48px, var(--color-primary) 48px, var(--color-primary) 100%);
+        background: linear-gradient(to bottom, var(--color-white-dark) 0%, var(--color-white-dark) 48px, var(--color-primary) 48px, var(--color-primary) 100%);
         height:200px;
         border-bottom: 1px solid var(--color-border);
         .one {
           color: var(--color-primary);
-          background: var(--color-primary-white-fixed);
+          background: var(--color-white-fixed);
         }
       }
 
@@ -267,7 +259,7 @@ body {
         height: 48px;
 
         &:hover {
-          color: var(--color-primary-white-fixed);
+          color: var(--color-white-fixed);
             background: var(--color-primary);
           .two-depth {
             top: 48px;
@@ -289,7 +281,7 @@ body {
         visibility: hidden;
         width:120px;
         transition: all 0.4s ease-out;
-        padding:toRem(4) toRem(15);
+        padding:toRem(4) 0;
         border-left: 1px solid var(--color-border);
         border-right: 1px solid var(--color-border);
         
@@ -297,8 +289,8 @@ body {
           >.boxs {
             display: flex;
             align-items: center;
-            padding: toRem(7) 0;
-            color: var(--color-primary-white-fixed);
+            padding: toRem(7) toRem(15);
+            color: var(--color-white-fixed);
             
             .arr {
               width: toRem(12);
@@ -311,12 +303,17 @@ body {
           }
 
           &:hover {
+            >.boxs{
+              background: var(--color-top-menu-bg);
+            }
+            
             .arr {
               // rotate: 90deg;
             }
 
             .three-depth {
               opacity: 1;
+              
             }
           }
         }
@@ -330,14 +327,12 @@ body {
         overflow: hidden;
         transition: all 0.4s ease-out;
         padding: toRem(4) 0;
-
         .three {
           padding: toRem(7) toRem(15);
-          color: var(--color-primary-white-fixed);
-          
-
+          color: var(--color-white-fixed);
+      
           &:hover {
-            background: var(--color-border);
+            background: var(--color-top-menu-bg);
           }
         }
       }
@@ -348,7 +343,7 @@ body {
 }
 
 .top-menu-wrap {
-  background: var(--color-primary-white-fixed);
+  background: var(--color-white-fixed);
   flex: 1 1;
 }
 
@@ -359,7 +354,7 @@ body {
   width: 0;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-primary-dark) 80px, var(--color-primary-dark) 100%);
+  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-white-dark) 80px, var(--color-white-dark) 100%);
   border-right: none;
   transition: all 0.4s ease-out;
   display:flex;
@@ -379,7 +374,7 @@ body {
   }
 
   h1.logo {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-white-dark);
     border-bottom: 1px solid var(--color-border);
     display:flex;
     height:48px;
@@ -401,14 +396,14 @@ body {
       align-items: center;
       justify-content: center;
       gap: 6px;
-      color: var(--color-primary-white-fixed);
+      color: var(--color-white-fixed);
       background: var(--color-primary);
       transition: all 0.4s ease-out;
       @include font(bold, 13);
       &.active,
       &:hover {
         color: var(--color-primary);
-        background: var(--color-primary-white-fixed);
+        background: var(--color-white-fixed);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
 
@@ -442,8 +437,7 @@ body {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: toRem(13) 0;
-          margin: 0 toRem(10);
+          padding: toRem(13) toRem(10);
           border-top: 1px solid var(--color-border);
           border-bottom: 1px solid var(--color-border);
           color: var(--color-primary);
@@ -461,7 +455,7 @@ body {
         }
 
         &:hover {
-          >.boxs {}
+          >.boxs {background: var(--color-menu-bg);}
         }
 
         &.active {
@@ -492,7 +486,7 @@ body {
 
         &:hover,
         &.active {
-          background: var(--color-border);
+          background: var(--color-menu-bg);
         }
       }
     }
@@ -507,7 +501,7 @@ body {
 
 /** SETTINGS */
 .settings-wrap {
-  background: var(--color-primary-dark);
+  background: var(--color-white-dark);
   border-left: 1px solid var(--color-border);
   transition: all 0.4s ease-out;
   display:flex;
@@ -536,7 +530,7 @@ body {
     transition: all 0.4s ease-out;
     position:absolute; left:-1px; top:48px;
     width: toRem(150); border: 1px solid var(--color-border); border-bottom:none; border-top: none;
-    background: var(--color-primary-dark);
+    background: var(--color-white-dark);
     .tit {
       @include font(bold, 13);
       color: var(--color-black-text);
@@ -614,7 +608,7 @@ body {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-primary-dark);
+  background: var(--color-white-dark);
   .tab-area {
     flex:1 1;
   }
