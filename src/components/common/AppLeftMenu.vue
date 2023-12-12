@@ -1,6 +1,6 @@
 <template>
     <div class="left-menu-wrap" :class="{active: !isTopMenu}">
-        <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
+        <h1 class="logo"><img :src="require(`@/assets/images/common/logo_w.png`)" alt=""></h1>
         <div class="left-menus">
             <ul class="one-depth">
                 <!-- one 기본 첫번째는 active, 선택했을때 active -->

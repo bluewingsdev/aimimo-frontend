@@ -1,5 +1,5 @@
 <template>
-    <div class="settings-wrap">
+    <div class="settings-wrap" :class="{top: isTopMenu}">
         <!-- 메뉴 위치 : left-menu-wrap, header-wrap : 선택된 메뉴의 클래스에 active -->
         <!-- 셋팅 영역 : left-menu-wrap active : open-page-wrap 안에 <AppSettings/> -->
         <!-- 셋팅 영역 : header-wrap active : header-wrap 안에 <AppSettings/> -->

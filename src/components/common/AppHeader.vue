@@ -1,7 +1,7 @@
 <template>
     <div class="header-wrap" :class="{ active: isTopMenu }" >
         <div class="header" @mouseout="onMenuReset(false)">
-            <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
+            <h1 class="logo"><img :src="require(`@/assets/images/common/logo_w.png`)" alt=""></h1>
             <ul class="one-depth" :class="{ hover: isMenuOpen}" @mouseleave="onMenuMouseleave()">
                 <template v-for="(depth1) in menuList.filter(x => x.upMenuId == null)" :key="depth1">
                     <!-- 현재 상태에서.. 
@@ -11,7 +11,7 @@
                     -->
                     <li class="one" @mouseover="onMenuMouseover(depth1)">
                         <IconSetting 
-                            :isActive="!depth1.isActive"
+                            :isActive="depth1.isActive"
                         />
                         <span>{{ depth1.menuNm }}</span>
                         <ul class="two-depth" v-if="menuList.filter(x => x.upMenuId == depth1.menuId).length > 0">

@@ -206,11 +206,11 @@ body {
     justify-content: space-between;
     height: 0;
     transition: all 0.4s ease-out;
-    background-color: var(--color-white-dark);
+    background-color: var(--color-primary);
    
     h1.logo {
       width: 150px;
-      background-color: var(--color-white-dark);
+      background-color: var(--color-primary);
 
       display: flex;
       height: 48px;
@@ -229,12 +229,12 @@ body {
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      background-color: var(--color-white-dark);
+      background-color: var(--color-primary);
       height:48px;
       transition: all 0.4s ease-out;
       overflow: hidden;
       &.hover {
-        background: linear-gradient(to bottom, var(--color-white-dark) 0%, var(--color-white-dark) 48px, var(--color-primary) 48px, var(--color-primary) 100%);
+        background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary) 48px, var(--color-white-dark) 48px, var(--color-white-dark) 100%);
         height:200px;
         border-bottom: 1px solid var(--color-border);
         .one {
@@ -250,8 +250,8 @@ body {
         justify-content: center;
         width:120px;
         gap: 6px;
-        color: var(--color-primary-text);
-        background: var(--color-white-dark);
+        color: var(--color-white-fixed);
+        background: var(--color-primary);
         // background: var(--color-primary);
         transition: all 0.4s ease-out;
         position:relative;
@@ -259,8 +259,8 @@ body {
         height: 48px;
 
         &:hover {
-          color: var(--color-white-fixed);
-          background: var(--color-primary);
+          color: var(--color-primary);
+          background: var(--color-white-fixed);
           .two-depth {
             top: 48px;
             opacity: 1;
@@ -290,7 +290,7 @@ body {
             display: flex;
             align-items: center;
             padding: toRem(7) toRem(15);
-            color: var(--color-white-fixed);
+            color: var(--color-primary-text);
             
             .arr {
               width: toRem(12);
@@ -304,7 +304,7 @@ body {
 
           &:hover {
             >.boxs{
-              background: var(--color-top-menu-bg);
+              background: var(--color-menu-bg);
             }
             
             .arr {
@@ -329,10 +329,10 @@ body {
         padding: toRem(4) 0;
         .three {
           padding: toRem(7) toRem(15);
-          color: var(--color-white-fixed);
+          color: var(--color-primary-text);
       
           &:hover {
-            background: var(--color-top-menu-bg);
+            background: var(--color-menu-bg);
           }
         }
       }
@@ -374,7 +374,7 @@ body {
   }
 
   h1.logo {
-    background-color: var(--color-white-dark);
+    background-color: var(--color-primary);
     border-bottom: 1px solid var(--color-border);
     display:flex;
     height:48px;
@@ -506,6 +506,12 @@ body {
   transition: all 0.4s ease-out;
   display:flex;
   align-self: stretch;
+  &.top {
+    background: var(--color-primary);
+    > div {
+      color: var(--color-white-fixed);
+    }
+  }
   >div { 
     @include font(bold, 13); 
     padding:0 toRem(20); 
