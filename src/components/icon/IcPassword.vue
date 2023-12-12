@@ -15,7 +15,7 @@
                 type: Boolean,
                 default: false
             },
-            defalutColor: {
+            defaultColor: {
                 type: String,
                 default:`var(--color-white-fixed)`
             },

@@ -1,6 +1,6 @@
 <template>
     <div class="header-wrap" :class="{ active: isTopMenu }" >
-        <div class="header" @mouseout="onMenuReset(true)">
+        <div class="header" @mouseout="onMenuReset(false)">
             <h1 class="logo"><img :src="require(`@/assets/images/common/logo.png`)" alt=""></h1>
             <ul class="one-depth" :class="{ hover: isMenuOpen}" @mouseleave="onMenuMouseleave()">
                 <template v-for="(depth1) in menuList.filter(x => x.upMenuId == null)" :key="depth1">
@@ -79,7 +79,7 @@
                     {
                         menuId: 'MENU 1',
                         menuNm: 'MENU 1',
-                        isActive: true,
+                        isActive: false,
                         upMenuId: null,
                         url: null
                     },
@@ -128,7 +128,7 @@
                     {
                         menuId: 'MENU 2',
                         menuNm: 'MENU 2',
-                        isActive: true,
+                        isActive: false,
                         upMenuId: null,
                         url: null
                     },
@@ -149,7 +149,7 @@
                     {
                         menuId: 'MENU 3',
                         menuNm: 'MENU 3',
-                        isActive: true,
+                        isActive: false,
                         upMenuId: null,
                         url: null
                     }
