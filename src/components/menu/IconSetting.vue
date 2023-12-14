@@ -37,14 +37,8 @@
         created() {
             
         },
-        methods: {},
-        watch: {
-            isActive(newValue, oldValue) {
-                console.log(newValue)
-                console.log(oldValue)
-            },
-            
-        }
+        methods: {}
+        
     }
 </script>
   

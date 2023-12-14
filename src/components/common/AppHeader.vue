@@ -21,7 +21,7 @@
                                         <span class="">{{ depth2.menuNm }}</span>
                                         
                                         <span v-if="menuList.filter(x => x.upMenuId == depth2.menuId).length > 0" class="arr">
-                                        <IcMenuTopArrow 
+                                        <IcMenuArrow 
                                                 :isActive="depth2.isActive"
                                             />
                                         </span>
@@ -67,11 +67,11 @@
   
 <script>
     import IconSetting from "@/components/menu/IconSetting.vue";
-    import IcMenuTopArrow from "@/components/menu/IcMenuTopArrow.vue";
+    import IcMenuArrow from "@/components/menu/IcMenuArrow.vue";
     import AppSettings from "@/components/common/AppSettings.vue";
     export default {
         name: "AppHeader",
-        components: {IconSetting,IcMenuTopArrow,AppSettings},
+        components: {IconSetting,IcMenuArrow,AppSettings},
         data() {
             return {
                 isMenuOpen: false,

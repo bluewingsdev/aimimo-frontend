@@ -16,6 +16,7 @@ html {
 
 body {
   height: 100%;
+  background: var(--color-white-dark);
 
   >#app {
     height: 100%;
@@ -74,7 +75,7 @@ body {
       display: flex;
       flex-direction: column;
       flex: 1 1;
-
+      transition: all 0.4s ease-out;
       .contents {
         background: var(--color-contents-bg);
         flex: 1 1;
@@ -229,12 +230,11 @@ body {
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      background-color: var(--color-primary);
+      background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary) 48px, var(--color-white-dark) 48px, var(--color-white-dark) 100%);
       height:48px;
       transition: all 0.4s ease-out;
       overflow: hidden;
       &.hover {
-        background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary) 48px, var(--color-white-dark) 48px, var(--color-white-dark) 100%);
         height:200px;
         border-bottom: 1px solid var(--color-border);
         .one {
@@ -349,9 +349,9 @@ body {
 
 /** LEFT MENU */
 .left-menu-wrap {
-  position:relative;
-  left:-280px;
-  width: 0;
+  position:absolute;
+  width: 280px;
+  left: -280px;
   height: 100%;
   overflow: hidden;
   background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 80px, var(--color-white-dark) 80px, var(--color-white-dark) 100%);
@@ -368,14 +368,18 @@ body {
   }
 
   &.active {
-    width: 280px;
     left:0;
     border-right: 1px solid var(--color-border);
+    &+.contents-area {
+      margin-left:280px;
+      .tab-area {
+        background-color: var(--color-primary);
+      }
+    }
   }
 
   h1.logo {
     background-color: var(--color-primary);
-    border-bottom: 1px solid var(--color-border);
     display:flex;
     height:48px;
     justify-content: flex-start;
@@ -501,16 +505,13 @@ body {
 
 /** SETTINGS */
 .settings-wrap {
-  background: var(--color-white-dark);
+  background: var(--color-primary);
   border-left: 1px solid var(--color-border);
   transition: all 0.4s ease-out;
   display:flex;
   align-self: stretch;
   &.top {
-    background: var(--color-primary);
-    > div {
-      color: var(--color-white-fixed);
-    }
+    position:absolute; right:0; top:0; height:48px;
   }
   >div { 
     @include font(bold, 13); 
@@ -518,7 +519,7 @@ body {
     display:flex;
     align-items: center;
     border-right: 1px solid var(--color-border);
-    color: var(--color-gray-text);
+    color: var(--color-white-fixed);
     cursor: pointer;
     position:relative;
     &.member {
@@ -605,7 +606,6 @@ body {
 .tab-area {
   height: 48px;
   transition: all 0.4s ease-out;
-  border-top: 1px solid var(--color-border);
 }
 
 /**  */
@@ -613,7 +613,7 @@ body {
   height: 48px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--color-border);
+  
   background: var(--color-white-dark);
   .tab-area {
     flex:1 1;
