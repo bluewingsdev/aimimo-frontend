@@ -1,0 +1,35 @@
+<template>
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.75 13C22.75 18.3848 18.3848 22.75 13 22.75C7.61522 22.75 3.25 18.3848 3.25 13C3.25 7.61522 7.61522 3.25 13 3.25C16.0629 3.25 18.7959 4.66231 20.5833 6.87122" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M21.125 3.25L21.125 7.58333L16.7917 7.58333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+</template>
+  
+<script>
+
+    export default {
+        name: "IcRefresh",
+        props: {
+            isActive: {
+                type: Boolean,
+                default: false
+            },
+            defaultColor: {
+                type: String,
+                default:`var(--color-white-fixed)`
+            },
+            activeColor: {
+                type: String,
+                default:`var(--color-primary)`
+            }
+            
+        },
+        components: {},
+        data() {},
+        computed: {},
+        created() {},
+        methods: {}
+        
+    }
+</script>
+  

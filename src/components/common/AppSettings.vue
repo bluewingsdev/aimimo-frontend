@@ -4,9 +4,9 @@
         <!-- 셋팅 영역 : left-menu-wrap active : open-page-wrap 안에 <AppSettings/> -->
         <!-- 셋팅 영역 : header-wrap active : header-wrap 안에 <AppSettings/> -->
         <div class="">텝닫기</div>
-        <div class="" @click="reload()">새로고침</div>
+        <div class="" @click="reload()"><IcRefresh /></div>
         <div class="setting-btn">
-            설정
+            <IcSettings   />
             <div class="settings">
                 <div class="tit">색상모드</div>
                 <ul class="color-set">
@@ -39,9 +39,11 @@
 </template>
   
 <script>
+    import IcRefresh from "@/components/icon/IcRefresh.vue";
+    import IcSettings from "@/components/icon/IcSettings.vue";
     export default {
         name: "AppSettings",
-        components: {},
+        components: { IcRefresh, IcSettings },
         data() {},
         computed: {
             themeColor() {
