@@ -8,6 +8,7 @@ import FullLayout from "./layout/FullLayout.vue"
 import Main from "./pages/Index.vue"
 import Login from "./pages/login/Login.vue"
 import Register from "./pages/user/Register.vue"
+import Sample from "./pages/user/Sample.vue"
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
       {
         path: "/register",
         component: Register,
+      },
+      //샘플 페이지
+      {
+        path: "/sample",
+        component: Sample,
       },
     ],
   },
@@ -48,7 +54,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ["/login", "/register"]
+  const publicPages = ["/login", "/register", "/sample"]
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem("user")
 

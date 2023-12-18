@@ -107,6 +107,13 @@
                         url: '/login'
                     },
                     {
+                        menuId: 'MENU 1-1-4',
+                        menuNm: 'SamplePage1',
+                        isActive: true,
+                        upMenuId: 'MENU 1-1',
+                        url: '/sample'
+                    },
+                    {
                         menuId: 'MENU 2',
                         menuNm: 'MENU 2',
                         isActive: false,
